@@ -2,10 +2,8 @@
 #%%
 # 載入資料並且正確轉換日期格式
 import pandas as pd
-import sys
-sys.path.append("..")
 
-filename = 'datas/ETHUSD_2021_all.csv'
+filename = 'tools/datas/ETHUSD_2021_all.csv'
 df = pd.read_csv(filename)
 
 # 日期欄位處理 string to date
@@ -20,5 +18,5 @@ from sqlalchemy import create_engine
 engine_url = "mysql+pymysql://root:123456@127.0.0.1:3306/testdemo"
 engine = create_engine(engine_url, echo=True)
 
-df.to_sql(name='coindata02', con=engine, if_exists = 'append', index=False)
+df.to_sql(name='price_history', con=engine, if_exists = 'append', index=False)
 
