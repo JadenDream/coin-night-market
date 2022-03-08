@@ -1,0 +1,1 @@
+docker build -t coin_night_market_image .
