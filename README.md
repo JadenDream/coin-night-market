@@ -1,15 +1,13 @@
 # coin-night-market
- 提供幣圈商品歷史價格走勢資訊的api服務
+提供(虛擬幣/股票)商品歷史價格走勢資訊的api服務
+主要拿來練習 python + fastapi + sqlalchemy
 
+## 運行前說明
+需要準備一個mysql,以供查詢對應歷史價格資訊,並將以下sql匯入資料庫
+tools/testdemo_2022-03-08.sql
+並在 .env 中設定對應資料庫資訊
+docker 則是在 run_amd64_docker.sh 中設定
 
-## 套件安裝
-### pip3
-    pip3 install sqlalchemy
-    pip3 install pymysql
-
-### conda
-    conda install -c anaconda sqlalchemy
-    conda install -c anaconda pymysq
 
 ## 運行服務
 ### 一般
