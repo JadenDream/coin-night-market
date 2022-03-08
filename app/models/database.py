@@ -1,8 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
+import setting
 
-DB_URL = "mysql+pymysql://root:123456@127.0.0.1:3306/testdemo"
+DB_HOST = os.getenv("db_host")
+DB_USER = os.getenv("db_user")
+DB_PASSWORD = os.getenv("db_password")
+
+DB_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/testdemo"
 Engine = create_engine(DB_URL, echo=True)
 # 由於 session
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=Engine)
